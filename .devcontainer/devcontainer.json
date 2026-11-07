@@ -1,0 +1,18 @@
+{
+  "name": "Windows Docker (TH)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+  "forwardPorts": [8006, 3389],
+  "portsAttributes": {
+    "8006": { "label": "Windows Web Viewer", "onAutoForward": "notify" },
+    "3389": { "label": "RDP", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
+}

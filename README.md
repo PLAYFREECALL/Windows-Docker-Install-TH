@@ -17,6 +17,24 @@ mkdir user && cd user
 wget -O windows.yml https://raw.githubusercontent.com/MCFirsting/Windows-Docker-Install-TH/main/windows.yml
 sudo docker-compose -f windows.yml up
 ```
+## 🛠️ เครื่องมือช่วยใช้งาน (แบบง่าย)
+หาก Clone repository นี้ไว้ใน Codespaces สามารถใช้สคริปต์ `win.sh` แทนการพิมพ์คำสั่งเองทั้งหมด
+```bash
+./win.sh install   # ติดตั้ง Docker + ตรวจระบบ + เริ่ม Windows ในคำสั่งเดียว
+```
+
+| คำสั่ง | หน้าที่ |
+|---|---|
+| `./win.sh start` / `stop` / `restart` | เริ่ม / หยุด / รีสตาร์ท Windows |
+| `./win.sh status` / `logs -f` | ดูสถานะ / ดู log ระหว่างติดตั้ง |
+| `./win.sh url` | แสดงลิงก์หน้าเว็บพอร์ต 8006 |
+| `./win.sh config` | สร้าง `windows.yml` แบบถาม-ตอบ (เวอร์ชัน, ชื่อผู้ใช้, รหัสผ่าน, RAM, CPU, ดิสก์) |
+| `./win.sh check` | ตรวจ KVM, Docker, พื้นที่ดิสก์ (ต้องเหลือ 3GB ขึ้นไป) และเวลาที่ใช้โควต้า Codespaces |
+| `./win.sh backup` | สำรองข้อมูล Windows เป็นไฟล์ `.tar.gz` ในโฟลเดอร์ `backup/` |
+| `./win.sh reset` | ลบ Windows และข้อมูลทั้งหมด (ต้องพิมพ์ YES ยืนยัน) |
+
+repository นี้มีไฟล์ `.devcontainer` ด้วย เมื่อสร้าง Codespaces จะเลือกเครื่อง 4 Core / RAM 16GB ขึ้นไป ติดตั้ง Docker และเปิดพอร์ต 8006 ให้อัตโนมัติ จากนั้นพิมพ์ `./win.sh start` ได้ทันที
+
 เมื่อทำงานจะเชื่อมต่อเซิร์ฟเวอร์ลิ้งค์ที่แสดงพอร์ตให้เราเข้าไป
 ถ้าสังเกตว่ามีอยู่สองพอร์ต แนะนำไปที่พอร์ต 8006 เพื่อดูระหว่างการติดตั้ง Windows
 
